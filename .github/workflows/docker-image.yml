@@ -31,10 +31,9 @@ jobs:
       # Set up doctl (DigitalOcean CLI)
       - name: Install doctl
         run: |
-          wget https://github.com/digitalocean/doctl/releases/latest/download/doctl-1.65.0-linux-amd64.tar.gz
-          tar xf doctl-1.65.0-linux-amd64.tar.gz
+          wget $(curl -s https://api.github.com/repos/digitalocean/doctl/releases/latest | grep "browser_download_url.*linux-amd64.tar.gz" | cut -d : -f 2,3 | tr -d \" )
+          tar xf doctl-*-linux-amd64.tar.gz
           sudo mv doctl /usr/local/bin
-          doctl version
 
       # Authenticate with DigitalOcean
       - name: Authenticate with DigitalOcean
