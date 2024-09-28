@@ -4,7 +4,7 @@ const { networkInterfaces } = require('os');
 
 const nets = networkInterfaces();
 const results = Object.create(null); // Or just '{}', an empty object
-
+result.push('Hello from Duke')
 for (const name of Object.keys(nets)) {
     for (const net of nets[name]) {
         // Skip over non-IPv4 and internal (i.e. 127.0.0.1) addresses
@@ -17,6 +17,7 @@ for (const name of Object.keys(nets)) {
             results[name].push(net.address);
         }
     }
+    s
 }
 app.get('/', (req, res) => res.send(results))
 app.listen(3000, () => console.log('Server ready'))
