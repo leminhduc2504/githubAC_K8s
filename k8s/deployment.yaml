@@ -1,22 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-deployment
+  name: my-app
   labels:
-    app: node
+    app: my-app
 spec:
-  replicas: 3
+  replicas: 2  # Number of desired pods
   selector:
     matchLabels:
-      app: node
+      app: my-app
   template:
     metadata:
       labels:
-        app: node
+        app: my-app
     spec:
       containers:
-      - name: node
-        image: examplenode
-        imagePullPolicy: Never
+      - name: my-app
+        image: leminhduc2504/my-app:latest  # Default image, will be overridden
         ports:
-        - containerPort: 3000
+        - containerPort: 3000  # Expose port (change as necessary)
