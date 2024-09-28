@@ -16,7 +16,6 @@ for (const name of Object.keys(nets)) {
             results[name].push(net.address);
         }
     }
-    s
 }
 app.get('/', (req, res) => res.send(results))
 app.get('/healcheck', (req, res) => res.send('Server ready'))
